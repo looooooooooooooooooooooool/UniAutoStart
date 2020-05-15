@@ -1,0 +1,20 @@
+{
+    "name": "AutoStart",
+    "id": "Fvv-AutoStart",
+    "version": "1.0.0",
+    "description": "安卓开机自启动",
+    "_dp_type":"nativeplugin",
+    "_dp_nativeplugin":{
+        "android": {
+            "plugins": [
+                {
+                    "type": "module",
+                    "name": "Fvv-AutoStart",
+                    "class": "uni.fvv.autostart"
+                }
+            ],
+			"integrateType": "aar",
+            "minSdkVersion": "17"
+        }
+    }
+}

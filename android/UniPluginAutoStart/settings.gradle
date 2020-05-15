@@ -1,0 +1,3 @@
+rootProject.name='UniPluginAutoStart'
+include ':app'
+include ':autostart'
