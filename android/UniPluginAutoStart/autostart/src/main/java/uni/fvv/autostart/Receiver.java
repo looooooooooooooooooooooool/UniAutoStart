@@ -6,16 +6,12 @@ import android.content.Intent;
 import android.util.Log;
 
 public class Receiver extends BroadcastReceiver {
-
-    private final String ACTION_BOOT = "android.intent.action.BOOT_COMPLETED";
-
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.i("fvv auto start::", intent.getAction());
-
-        if (intent.getAction().equals(ACTION_BOOT)) {
-            Intent intentMainActivity = new Intent(intent.ACTION_MAIN);
-            intentMainActivity.setClassName(context.getPackageName(),"io.dcloud.PandoraEntry");
+        if (Objects.equals(intent.getAction(), Intent.ACTION_BOOT_COMPLETED)) {
+            Intent intentMainActivity = new Intent(Intent.ACTION_MAIN);
+            intentMainActivity.setClassName(context.getPackageName(), "io.dcloud.PandoraEntry");
             intentMainActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intentMainActivity);
         }
